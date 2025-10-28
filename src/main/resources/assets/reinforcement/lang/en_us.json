@@ -1,4 +1,6 @@
 {
   "item.reinforcement.reinforced_stick": "Reinforced Stick",
-  "item.reinforcement.compressed_diamond": "Compressed Diamond"
+  "item.reinforcement.compressed_diamond": "Compressed Diamond",
+  "item.reinforcement.reinforced_handle": "Reinforced Handle",
+  "itemGroup.reinforcement": "Reinforcement"
 }
