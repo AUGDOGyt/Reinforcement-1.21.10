@@ -1,6 +1,33 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "minecraft:item/stick",
+  "gui_light": "front",
   "textures": {
-    "layer0": "reinforcement:item/reinforced_stick"
+    "layer0": "reinforcement:item/reinforced_handle"
+  },
+  "display": {
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        90
+      ],
+      "scale": [
+        1,
+        1.2,
+        1
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        90
+      ],
+      "scale": [
+        1.3,
+        1,
+        1
+      ]
+    }
   }
 }
