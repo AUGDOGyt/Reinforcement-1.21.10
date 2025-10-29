@@ -52,19 +52,58 @@ public class ModItems {
 			REPAIRS_REINFORCED_ARMOR
 	);
 
-
+	//crafting items
 	public static final Item REINFORCED_STICK = register("reinforced_stick", Item::new, new Item.Settings());
     public static final Item REINFORCED_HANDLE = register("reinforced_handle", Item::new, new Item.Settings());
     public static final Item COMPRESSED_DIAMOND = register("compressed_diamond", Item::new, new Item.Settings());
 
-    public static final Item REINFORCED_NETHERITE_SWORD = register("reinforced_netherite_sword", Item::new, new Item.Settings().sword(REINFORCED_NETHERITE_TOOL_MATERIAL, 1.5f, 08.f));
+	//vanilla extended
+    public static final Item REINFORCED_NETHERITE_SWORD = register("reinforced_netherite_sword", Item::new, new Item.Settings().sword(REINFORCED_NETHERITE_TOOL_MATERIAL, 1.5f, 0.8f));
+	public static final Item REINFORCED_NETHERITE_AXE = register("reinforced_netherite_axe", Item::new, new Item.Settings().axe(REINFORCED_NETHERITE_TOOL_MATERIAL, 1.8f, 0.6f ));
+	public static final Item REINFORCED_NETHERITE_PICKAXE = register("reinforced_netherite_pickaxe", Item::new, new Item.Settings.pickaxe(REINFORCED_NETHERITE_TOOL_MATERIAL, 0.8f, 0.9f));
 
+	//spears
+	public static final Item WOODEN_SPEAR = register("wooden_spear", Item::new, new Item.Settings().spear(WOOD_TOOL_MATERIAL, 1.2f, 0.7f));
+	public static final Item STONE_SPEAR = register("stone_spear", Item::new, new Item.Settings().spear(STONE_TOOL_MATERIAL, 1.2f, 0.7f));
+	public static final Item IRON_SPEAR = register("iron_spear", Item::new, new Item.Settings().spear(IRON_TOOL_MATERIAL, 1.2f, 0.7f));
+	public static final Item GOLLDEN_SPEAR = register("gold_spear", Item::new, new Item.Settings().spear(GOLD_TOOL_MATERIAL_TOOL_MATERIAL, 1.2f, 0.7f));
+	public static final Item DIAMOND_SPEAR = register("diamond_spear", Item::new, new Item.Settings().spear(DIAMOND_TOOL_MATERIAL, 1.2f, 0.7f));
+	public static final Item REINFORCED_NETHERITE_SPEAR = register("reinforced_netherite_spear", Item::new, new Item.Settings().spear(REINFORCED_NETHERITE_TOOL_MATERIAL, 1.2f, 0.7f));
 
+	//rapiers
+	public static final Item WOODEN_RAPIER = register("wooden_rapier", Item::new, new Item.Settings().spear(WOOD_TOOL_MATERIAL, 0.9f, 0.7f));
+	public static final Item STONE_RAPIER = register("stone_rapier", Item::new, new Item.Settings().spear(STONE_TOOL_MATERIAL, 0.9f, 0.7f));
+	public static final Item IRON_RAPIER = register("iron_rapier", Item::new, new Item.Settings().spear(IRON_TOOL_MATERIAL, 0.9f, 0.7f));
+	public static final Item GOLDEN_RAPIER = register("gold_rapier", Item::new, new Item.Settings().spear(GOLD_TOOL_MATERIAL_TOOL_MATERIAL, 0.9f, 0.7f));
+	public static final Item DIAMOND_RAPIER = register("diamond_rapier", Item::new, new Item.Settings().spear(DIAMOND_TOOL_MATERIAL, 0.9f, 0.7f));
+	public static final Item REINFORCED_NETHERITE_RAPIER = register("reinforced_netherite_rapier", Item::new, new Item.Settings().spear(REINFORCED_NETHERITE_TOOL_MATERIAL, 0.9f, 0.7f));
+
+	//halberds
+	public static final Item WOODEN_HALBERD = register("wooden_halberd", Item::new, new Item.Settings().spear(WOOD_TOOL_MATERIAL, 1.4f, 0.7f));
+	public static final Item STONE_HALBERD = register("stone_halberd", Item::new, new Item.Settings().spear(STONE_TOOL_MATERIAL, 1.4f, 0.7f));
+	public static final Item IRON_HALBERD = register("iron_halberd", Item::new, new Item.Settings().spear(IRON_TOOL_MATERIAL, 1.4f, 0.7f));
+	public static final Item GOLDEN_HALBERD = register("gold_halberd", Item::new, new Item.Settings().spear(GOLD_TOOL_MATERIAL_TOOL_MATERIAL, 1.4f, 0.7f));
+	public static final Item DIAMOND_HALBERD = register("diamond_halberd", Item::new, new Item.Settings().spear(DIAMOND_TOOL_MATERIAL, 1.4f, 0.7f));
+	public static final Item REINFORCED_NETHERITE_HALBERD = register("reinforced_netherite_halberd", Item::new, new Item.Settings().spear(REINFORCED_NETHERITE_TOOL_MATERIAL, 1.4f, 0.7f));
+
+	//sickles
+	public static final Item WOODEN_HALBERD = register("wooden_halberd", Item::new, new Item.Settings().spear(WOOD_TOOL_MATERIAL, 1.4f, 0.7f));
+	public static final Item STONE_HALBERD = register("stone_halberd", Item::new, new Item.Settings().spear(STONE_TOOL_MATERIAL, 1.4f, 0.7f));
+	public static final Item IRON_HALBERD = register("iron_halberd", Item::new, new Item.Settings().spear(IRON_TOOL_MATERIAL, 1.4f, 0.7f));
+	public static final Item GOLDEN_HALBERD = register("gold_halberd", Item::new, new Item.Settings().spear(GOLD_TOOL_MATERIAL_TOOL_MATERIAL, 1.4f, 0.7f));
+	public static final Item DIAMOND_HALBERD = register("diamond_halberd", Item::new, new Item.Settings().spear(DIAMOND_TOOL_MATERIAL, 1.4f, 0.7f));
+	public static final Item REINFORCED_NETHERITE_HALBERD = register("reinforced_netherite_halberd", Item::new, new Item.Settings().spear(REINFORCED_NETHERITE_TOOL_MATERIAL, 1.4f, 0.7f));
+
+	//maces
+	public static final Item WOODEN_HALBERD = register("wooden_halberd", Item::new, new Item.Settings().spear(WOOD_TOOL_MATERIAL, 1.4f, 0.7f));
+	public static final Item STONE_HALBERD = register("stone_halberd", Item::new, new Item.Settings().spear(STONE_TOOL_MATERIAL, 1.4f, 0.7f));
+	public static final Item IRON_HALBERD = register("iron_halberd", Item::new, new Item.Settings().spear(IRON_TOOL_MATERIAL, 1.4f, 0.7f));
+	public static final Item GOLDEN_HALBERD = register("gold_halberd", Item::new, new Item.Settings().spear(GOLD_TOOL_MATERIAL_TOOL_MATERIAL, 1.4f, 0.7f));
+	public static final Item DIAMOND_HALBERD = register("diamond_halberd", Item::new, new Item.Settings().spear(DIAMOND_TOOL_MATERIAL, 1.4f, 0.7f));
+	public static final Item REINFORCED_NETHERITE_HALBERD = register("reinforced_netherite_halberd", Item::new, new Item.Settings().spear(REINFORCED_NETHERITE_TOOL_MATERIAL, 1.4f, 0.7f));
 
     public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY  = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(Reinforcement.MOD_ID, "reinforcement"));
-    public static final ItemGroup CUSTOM_ITEM_GROUP = FabricItemGroup.builder(
-
-			)
+    public static final ItemGroup CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
 		.icon(() -> new ItemStack(ModItems.REINFORCED_STICK))
 		.displayName(Text.translatable("itemGroup.reinforcement"))
 		.build();
@@ -94,6 +133,10 @@ public class ModItems {
             entries.add(REINFORCED_STICK);
             entries.add(COMPRESSED_DIAMOND);
             entries.add(REINFORCED_HANDLE);
+
+			entries.add(WOODEN_SPEAR);
+			entries.add(WOODEN_RAPIER);
+			entries.add(WOODEN_HALBERD);
         });
     }
 }

@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:item/stick",
+  "gui_light": "front",
+  "textures": {
+    "layer0": "reinforcement:item/wooden_spear"
+  },
+  "display": {
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        90
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        90
+      ],
+      "scale": [
+        1.2,
+        1,
+        1
+      ]
+    }
+  }
+}

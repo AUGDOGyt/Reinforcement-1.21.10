@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "reinforcement:item/reinforced_stick"
+    "layer0": "reinforcement:item/wooden_spear"
   }
 }
