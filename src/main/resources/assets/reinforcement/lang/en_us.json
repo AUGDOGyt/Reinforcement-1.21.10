@@ -4,6 +4,19 @@
   "item.reinforcement.reinforced_stick": "Reinforced Stick",
   "item.reinforcement.compressed_diamond": "Compressed Diamond",
   "item.reinforcement.reinforced_handle": "Reinforced Handle",
+  "item.reinforcement.lightweight_alloy_ingot": "Lightweight Alloy Ingot",
+  "item.reinforcement.heavy_alloy_ingot": "Heavy Alloy Ingot",
+  "item.reinforcement.reinforced_lightweight_alloy_ingot": "Reinforced Lightweight Alloy Ingot",
+  "item.reinforcement.reinforced_heavy_alloy_ingot": "Reinforced Heavy Alloy Ingot",
+  "item.reinforcement.reinforced_netherite_ingot": "Reinforced Netherite Ingot",
 
-  "item.reinforcement.wooden-spear": "WoodenSpear"
+  "item.reinforcement.wooden_spear": "Wooden Spear",
+  "item.reinforcement.stone_spear": "Stone Spear",
+  "item.reinforcement.iron_spear": "Iron Spear",
+  "item.reinforcement.gold_spear": "Gold Spear",
+  "item.reinforcement.lightweight_alloy_spear": "Lightweight Alloy Spear",
+  "item.reinforcement.diamond_spear": "Diamond Spear",
+  "item.reinforcement.heavy_alloy-spear": "Heavy Alloy Spear",
+  "item.reinforcement.netherite_spear": "Netherite Spear",
+  "item.reinforcement.reinforced_netherite_spear": "Reinforced Netherite Spear"
 }

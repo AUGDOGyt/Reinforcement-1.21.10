@@ -25,7 +25,8 @@ public class ModItems {
 
 
 	public static final RegistryKey<EquipmentAsset> REINFORCED_ARMOR_MATERIAL_KEY = RegistryKey.of(EquipmentAssetKeys.REGISTRY_KEY, Identifier.of(Reinforcement.MOD_ID, "reinforced_netherite"));
-	public static final RegistryKey<EquipmentAsset> ALLOY_ARMOR_MATERIAL_KEY = RegistryKey.of(EquipmentAssetKeys.REGISTRY_KEY, Identifier.of(Reinforcement.MOD_ID, "reinforced_netherite"));
+	public static final RegistryKey<EquipmentAsset> L_ALLOY_ARMOR_MATERIAL_KEY = RegistryKey.of(EquipmentAssetKeys.REGISTRY_KEY, Identifier.of(Reinforcement.MOD_ID, "lightweight_alloy"));
+	public static final RegistryKey<EquipmentAsset> H_ALLOY_ARMOR_MATERIAL_KEY = RegistryKey.of(EquipmentAssetKeys.REGISTRY_KEY, Identifier.of(Reinforcement.MOD_ID, "lightweight_alloy"));
 
 	public static final TagKey<Item> REPAIRS_ALLOY_ARMOR = TagKey.of(Registries.ITEM.getKey(), Identifier.of(Reinforcement.MOD_ID, "repairs_alloy_armor"));
 	public static final TagKey<Item> REPAIRS_REINFORCED_ALL_ARMOR = TagKey.of(Registries.ITEM.getKey(), Identifier.of(Reinforcement.MOD_ID, "repairs_reinforced_all_armor"));
@@ -61,7 +62,39 @@ public class ModItems {
 			0.0F,
 			0.0F,
 			REPAIRS_ALLOY_ARMOR,
-			ALLOY_ARMOR_MATERIAL_KEY
+			L_ALLOY_ARMOR_MATERIAL_KEY
+	);
+
+	public static final ArmorMaterial RLightweightAlloyA = new ArmorMaterial(
+			BASE_DURABILITY,
+			Map.of(
+					EquipmentType.HELMET, 2,
+					EquipmentType.CHESTPLATE, 6,
+					EquipmentType.LEGGINGS, 4,
+					EquipmentType.BOOTS, 1
+			),
+			5,
+			SoundEvents.ITEM_ARMOR_EQUIP_IRON,
+			0.0F,
+			0.0F,
+			REPAIRS_ALLOY_ARMOR,
+			L_ALLOY_ARMOR_MATERIAL_KEY
+	);
+
+	public static final ArmorMaterial RHeavyAlloyA = new ArmorMaterial(
+			BASE_DURABILITY,
+			Map.of(
+					EquipmentType.HELMET, 2,
+					EquipmentType.CHESTPLATE, 6,
+					EquipmentType.LEGGINGS, 4,
+					EquipmentType.BOOTS, 1
+			),
+			5,
+			SoundEvents.ITEM_ARMOR_EQUIP_IRON,
+			0.0F,
+			0.0F,
+			REPAIRS_ALLOY_ARMOR,
+			H_ALLOY_ARMOR_MATERIAL_KEY
 	);
 
 	public static final ArmorMaterial HeavyAlloyA = new ArmorMaterial(
@@ -77,7 +110,7 @@ public class ModItems {
 			0.0F,
 			0.0F,
 			REPAIRS_ALLOY_ARMOR,
-			ALLOY_ARMOR_MATERIAL_KEY
+			H_ALLOY_ARMOR_MATERIAL_KEY
 	);
 
 	public static final ToolMaterial REINFORCED_NETHERITE = new ToolMaterial(
@@ -104,10 +137,19 @@ public class ModItems {
 			5.0F,
 			4.5F,
 			22,
-			REPAIRS_REINFORCED_NET_ARMOR
+			REPAIRS_ALLOY_ARMOR
 	);
 
 	public static final ToolMaterial REINFORCED_LIGHTWEIGHT_ALLOY = new ToolMaterial(
+			BlockTags.INCORRECT_FOR_WOODEN_TOOL,
+			700,
+			5.0F,
+			4.5F,
+			22,
+			REPAIRS_REINFORCED_ALL_ARMOR
+	);
+
+	public static final ToolMaterial REINFORCED_HEAVY_ALLOY = new ToolMaterial(
 			BlockTags.INCORRECT_FOR_WOODEN_TOOL,
 			700,
 			5.0F,
@@ -127,6 +169,9 @@ public class ModItems {
 	public static final Item REINFORCED_NETHERITE_INGOT = register("reinforced_netherite_ingot", Item::new, new Item.Settings());
 
 	//vanilla extended
+		//Non Metal
+		public static final Item HEAVY_CROSSBOW = register("heavy crossbow", Item::new, new Item.Settings());
+		public static final Item TOWER_SHIELD = register("tower_shield", Item::new, new Item.Settings());
 
 		//Lightweight Alloy
 			//tools
@@ -135,7 +180,7 @@ public class ModItems {
 			public static final Item LIGHTWEIGHT_ALLOY_PICKAXE = register("lightweight_alloy_pickaxe", Item::new, new Item.Settings().sword(LIGHTWEIGHT_ALLOY, 1.0f, 1.0f));
 			public static final Item LIGHTWEIGHT_ALLOY_SHOVEL = register("lightweight_alloy_shovel", Item::new, new Item.Settings().axe(LIGHTWEIGHT_ALLOY, 1.0f, 1.0f));
 			public static final Item LIGHTWEIGHT_ALLOY_HOE = register("lightweight_alloy_hoe", Item::new, new Item.Settings().sword(LIGHTWEIGHT_ALLOY, 1.0f, 1.0f));
-
+			
 			//armor
 			public static final Item LIGHTWEIGHT_ALLOY_HELMET = register("lightweight_alloy_helmet", Item::new, 
 				new Item.Settings().armor(LightweightAlloyA.INSTANCE, EquipmentType.HELMET)
@@ -156,28 +201,28 @@ public class ModItems {
 
 		//Heavy Alloy
 			//tools
-			public static final Item HEAVY_ALLOY_SWORD = register("heavy_alloy_sword", Item::new, new Item.Settings().sword(LIGHTWEIGHT_ALLOY, 1.0f, 1.0f));
-			public static final Item HEAVY_ALLOY_AXE = register("heavy_alloy_axe", Item::new, new Item.Settings().axe(LIGHTWEIGHT_ALLOY, 1.0f, 1.0f));
-			public static final Item HEAVY_ALLOY_PICKAXE = register("lightweight_alloy_pickaxe", Item::new, new Item.Settings().sword(LIGHTWEIGHT_ALLOY, 1.0f, 1.0f));
-			public static final Item HEAVY_ALLOY_SHOVEL = register("lightweight_alloy_shovel", Item::new, new Item.Settings().axe(LIGHTWEIGHT_ALLOY, 1.0f, 1.0f));
-			public static final Item HEAVY_ALLOY_HOE = register("lightweight_alloy_hoe", Item::new, new Item.Settings().sword(LIGHTWEIGHT_ALLOY, 1.0f, 1.0f));
+			public static final Item HEAVY_ALLOY_SWORD = register("heavy_alloy_sword", Item::new, new Item.Settings().sword(HEAVY_ALLOY, 1.0f, 1.0f));
+			public static final Item HEAVY_ALLOY_AXE = register("heavy_alloy_axe", Item::new, new Item.Settings().axe(HEAVY_ALLOY, 1.0f, 1.0f));
+			public static final Item HEAVY_ALLOY_PICKAXE = register("heavy_alloy_pickaxe", Item::new, new Item.Settings().sword(HEAVY_ALLOY, 1.0f, 1.0f));
+			public static final Item HEAVY_ALLOY_SHOVEL = register("heavy_alloy_shovel", Item::new, new Item.Settings().axe(HEAVY_ALLOY, 1.0f, 1.0f));
+			public static final Item HEAVY_ALLOY_HOE = register("heavy_alloy_hoe", Item::new, new Item.Settings().axe(HEAVY_ALLOY, 1.0f, 1.0f));
 
 			//armor
-			public static final Item HEAVY_ALLOY_HELMET = register("lightweight_alloy_helmet", Item::new, 
-				new Item.Settings().armor(LightweightAlloyA.INSTANCE, EquipmentType.HELMET)
-				.maxDamage(EquipmentType.HELMET.getMaxDamage(LightweightAlloyA.BASE_DURABILITY))
+			public static final Item HEAVY_ALLOY_HELMET = register("heavy_alloy_helmet", Item::new, 
+				new Item.Settings().armor(HeavyAlloyA.INSTANCE, EquipmentType.HELMET)
+				.maxDamage(EquipmentType.HELMET.getMaxDamage(HeavyAlloyA.BASE_DURABILITY))
 			);
-			public static final Item HEAVY_ALLOY_CHESTPLATE = register("lightweight_alloy_chestplate", Item::new, 
-				new Item.Settings().armor(LightweightAlloyA.INSTANCE, EquipmentType.CHESTPLATE)
-				.maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(LightweightAlloyA.BASE_DURABILITY))
+			public static final Item HEAVY_ALLOY_CHESTPLATE = register("heavy_alloy_chestplate", Item::new, 
+				new Item.Settings().armor(HeavyAlloyA.INSTANCE, EquipmentType.CHESTPLATE)
+				.maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(HeavyAlloyA.BASE_DURABILITY))
 			);
-			public static final Item HEAVY_ALLOY_LEGGINGS = register("lightweight_alloy_leggings", Item::new, 
-				new Item.Settings().armor(LightweightAlloyA.INSTANCE, EquipmentType.LEGGINGS)
-				.maxDamage(EquipmentType.LEGGINGS.getMaxDamage(LightweightAlloyA.BASE_DURABILITY))
+			public static final Item HEAVY_ALLOY_LEGGINGS = register("heavy_alloy_leggings", Item::new, 
+				new Item.Settings().armor(HeavyAlloyA.INSTANCE, EquipmentType.LEGGINGS)
+				.maxDamage(EquipmentType.LEGGINGS.getMaxDamage(HeavyAlloyA.BASE_DURABILITY))
 			);
-			public static final Item HEAVY_ALLOY_BOOTS = register("lightweight_alloy_boots", Item::new, 
-				new Item.Settings().armor(LightweightAlloyA.INSTANCE, EquipmentType.BOOTS)
-				.maxDamage(EquipmentType.BOOTS.getMaxDamage(LightweightAlloyA.BASE_DURABILITY))
+			public static final Item HEAVY_ALLOY_BOOTS = register("heavy_alloy_boots", Item::new, 
+				new Item.Settings().armor(HeavyAlloyA.INSTANCE, EquipmentType.BOOTS)
+				.maxDamage(EquipmentType.BOOTS.getMaxDamage(HeavyAlloyA.BASE_DURABILITY))
 			);
 
 		//Reinforced Lightweight Alloy
@@ -194,11 +239,47 @@ public class ModItems {
 				Item::new, new Item.Settings().sword(LIGHTWEIGHT_ALLOY, 1.0f, 1.0f));
 
 			//armor
+			public static final Item REINFORCED_LIGHTWEIGHT_ALLOY_HELMET = register("reinforced_lightweight_alloy_helmet", Item::new, 
+				new Item.Settings().armor(LightweightAlloyA.INSTANCE, EquipmentType.HELMET)
+				.maxDamage(EquipmentType.HELMET.getMaxDamage(LightweightAlloyA.BASE_DURABILITY))
+			);
+			public static final Item REINFORCED_LIGHTWEIGHT_ALLOY_CHESTPLATE = register("reinforced_lightweight_alloy_chestplate", Item::new, 
+				new Item.Settings().armor(LightweightAlloyA.INSTANCE, EquipmentType.CHESTPLATE)
+				.maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(LightweightAlloyA.BASE_DURABILITY))
+			);
+			public static final Item REINFORECED_LIGHTWEIGHT_ALLOY_LEGGINGS = register("reinforced_lightweight_alloy_leggings", Item::new, 
+				new Item.Settings().armor(LightweightAlloyA.INSTANCE, EquipmentType.LEGGINGS)
+				.maxDamage(EquipmentType.LEGGINGS.getMaxDamage(LightweightAlloyA.BASE_DURABILITY))
+			);
+			public static final Item REINFORCED_LIGHTWEIGHT_ALLOY_BOOTS = register("reinforced_lightweight_alloy_boots", Item::new, 
+				new Item.Settings().armor(LightweightAlloyA.INSTANCE, EquipmentType.BOOTS)
+				.maxDamage(EquipmentType.BOOTS.getMaxDamage(LightweightAlloyA.BASE_DURABILITY))
+			);
 
 		//Reinforced Heavy Alloy
-			//tools
+			public static final Item REINFORCED_HEAVY_ALLOY_SWORD = register("reinforced_heavy_alloy_sword", Item::new, new Item.Settings().sword(HEAVY_ALLOY, 1.0f, 1.0f));
+			public static final Item REINFORCED_HEAVY_ALLOY_AXE = register("reinforced_heavy_alloy_axe", Item::new, new Item.Settings().axe(HEAVY_ALLOY, 1.0f, 1.0f));
+			public static final Item REINFORCED_HEAVY_ALLOY_PICKAXE = register("reinforced_heavy_alloy_pickaxe", Item::new, new Item.Settings().sword(HEAVY_ALLOY, 1.0f, 1.0f));
+			public static final Item REINFORCED_HEAVY_ALLOY_SHOVEL = register("reinforced_heavy_alloy_shovel", Item::new, new Item.Settings().axe(HEAVY_ALLOY, 1.0f, 1.0f));
+			public static final Item REINFORCED_HEAVY_ALLOY_HOE = register("reinforced_heavy_alloy_hoe", Item::new, new Item.Settings().axe(HEAVY_ALLOY, 1.0f, 1.0f));
 
 			//armor
+			public static final Item REINFORCED_HEAVY_ALLOY_HELMET = register("reinforced_heavy_alloy_helmet", Item::new, 
+				new Item.Settings().armor(HeavyAlloyA.INSTANCE, EquipmentType.HELMET)
+				.maxDamage(EquipmentType.HELMET.getMaxDamage(HeavyAlloyA.BASE_DURABILITY))
+			);
+			public static final Item REINFORCED_HEAVY_ALLOY_CHESTPLATE = register("reinforced_heavy_alloy_chestplate", Item::new, 
+				new Item.Settings().armor(HeavyAlloyA.INSTANCE, EquipmentType.CHESTPLATE)
+				.maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(HeavyAlloyA.BASE_DURABILITY))
+			);
+			public static final Item REINFORCED_HEAVY_ALLOY_LEGGINGS = register("reinforced_heavy_alloy_leggings", Item::new, 
+				new Item.Settings().armor(HeavyAlloyA.INSTANCE, EquipmentType.LEGGINGS)
+				.maxDamage(EquipmentType.LEGGINGS.getMaxDamage(HeavyAlloyA.BASE_DURABILITY))
+			);
+			public static final Item REINFORCED_HEAVY_ALLOY_BOOTS = register("reinforced_heavy_alloy_boots", Item::new, 
+				new Item.Settings().armor(HeavyAlloyA.INSTANCE, EquipmentType.BOOTS)
+				.maxDamage(EquipmentType.BOOTS.getMaxDamage(HeavyAlloyA.BASE_DURABILITY))
+			);
 
 		//reinforced netherite
 			//items
