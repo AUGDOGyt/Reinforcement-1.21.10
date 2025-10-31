@@ -25,8 +25,9 @@ public class ModItems {
 
 
 	public static final RegistryKey<EquipmentAsset> REINFORCED_ARMOR_MATERIAL_KEY = RegistryKey.of(EquipmentAssetKeys.REGISTRY_KEY, Identifier.of(Reinforcement.MOD_ID, "reinforced_netherite"));
+	public static final RegistryKey<EquipmentAsset> ALLOY_ARMOR_MATERIAL_KEY = RegistryKey.of(EquipmentAssetKeys.REGISTRY_KEY, Identifier.of(Reinforcement.MOD_ID, "alloy"));
 	public static final RegistryKey<EquipmentAsset> L_ALLOY_ARMOR_MATERIAL_KEY = RegistryKey.of(EquipmentAssetKeys.REGISTRY_KEY, Identifier.of(Reinforcement.MOD_ID, "lightweight_alloy"));
-	public static final RegistryKey<EquipmentAsset> H_ALLOY_ARMOR_MATERIAL_KEY = RegistryKey.of(EquipmentAssetKeys.REGISTRY_KEY, Identifier.of(Reinforcement.MOD_ID, "lightweight_alloy"));
+	public static final RegistryKey<EquipmentAsset> H_ALLOY_ARMOR_MATERIAL_KEY = RegistryKey.of(EquipmentAssetKeys.REGISTRY_KEY, Identifier.of(Reinforcement.MOD_ID, "heavy_alloy"));
 
 	public static final TagKey<Item> REPAIRS_ALLOY_ARMOR = TagKey.of(Registries.ITEM.getKey(), Identifier.of(Reinforcement.MOD_ID, "repairs_alloy_armor"));
 	public static final TagKey<Item> REPAIRS_REINFORCED_ALL_ARMOR = TagKey.of(Registries.ITEM.getKey(), Identifier.of(Reinforcement.MOD_ID, "repairs_reinforced_all_armor"));
@@ -113,6 +114,22 @@ public class ModItems {
 			H_ALLOY_ARMOR_MATERIAL_KEY
 	);
 
+	public static final ArmorMaterial AlloyA = new ArmorMaterial(
+			BASE_DURABILITY,
+			Map.of(
+					EquipmentType.HELMET, 4,
+					EquipmentType.CHESTPLATE, 8,
+					EquipmentType.LEGGINGS, 7,
+					EquipmentType.BOOTS, 4
+			),
+			5,
+			SoundEvents.ITEM_ARMOR_EQUIP_IRON,
+			0.0F,
+			0.0F,
+			REPAIRS_ALLOY_ARMOR,
+			ALLOY_ARMOR_MATERIAL_KEY
+	);
+
 	public static final ToolMaterial REINFORCED_NETHERITE = new ToolMaterial(
 			BlockTags.INCORRECT_FOR_WOODEN_TOOL,
 			700,
@@ -158,14 +175,25 @@ public class ModItems {
 			REPAIRS_REINFORCED_ALL_ARMOR
 	);
 
+	public static final ToolMaterial ALLOY = new ToolMaterial(
+			BlockTags.INCORRECT_FOR_WOODEN_TOOL,
+			700,
+			5.0F,
+			4.5F,
+			22,
+			REPAIRS_ALL_ARMOR
+	);
+
 	//crafting items
 	public static final Item REINFORCED_STICK = register("reinforced_stick", Item::new, new Item.Settings());
     public static final Item REINFORCED_HANDLE = register("reinforced_handle", Item::new, new Item.Settings());
 	public static final Item LIGHTWEIGHT_ALLOY_INGOT = register("lightweight_alloy_ingot", Item::new, new Item.Settings());
+	public static final ITem ALLOY_INGOT = register("alloy_ingot", Item::new, new Item.Settings().repairs_alloy_armor());
 	public static final Item HEAVY_ALLOY_INGOT = register("heavy_alloy_ingot", Item::new, new Item.Settings());
     public static final Item COMPRESSED_DIAMOND = register("compressed_diamond", Item::new, new Item.Settings());
-	public static final Item REINFORCED_LIGHTWEIGHT_ALLOY = register("reinforced_lightweight_alloy", Item::new, new Item.Settings());
-	public static final Item REINFORCED_HEAVY_ALLOY = register("reinforced_heavy_alloy", Item::new, new Item.Settings());
+	public static final Item REINFORCED_LIGHTWEIGHT_ALLOY_INGOT = register("reinforced_lightweight_alloy", Item::new, new Item.Settings());
+	public static final Item REINFORCED_ALLOY_INGOT = register("reinforced_alloy_ingot". Item::new, new Item.Settings().repairs_reinforced_all_armor());
+	public static final Item REINFORCED_HEAVY_ALLOY_INGOT = register("reinforced_heavy_alloy", Item::new, new Item.Settings());
 	public static final Item REINFORCED_NETHERITE_INGOT = register("reinforced_netherite_ingot", Item::new, new Item.Settings());
 
 	//vanilla extended
@@ -197,6 +225,28 @@ public class ModItems {
 			public static final Item LIGHTWEIGHT_ALLOY_BOOTS = register("lightweight_alloy_boots", Item::new, 
 				new Item.Settings().armor(LightweightAlloyA.INSTANCE, EquipmentType.BOOTS)
 				.maxDamage(EquipmentType.BOOTS.getMaxDamage(LightweightAlloyA.BASE_DURABILITY))
+			);
+
+		//Standard Alloy
+			//tools
+			public static final Item ALLOY_SWORD = register("alloy_sword", Item::new, new Item.Settings().sword(ALLOY, 1.0f, 1.0f));
+			public static final Item ALLOY_AXE = register("alloy_axe", Item::new, new Item.Settings().axe(ALLOY, 1.0f, 1.0f));
+			public static final Item ALLOY_PICKAXE = register("alloy_pickaxe", Item::new, new Item.Settings().sword(ALLOY, 1.0f, 1.0f));
+			public static final Item ALLOY_SHOVEL = register("alloy_shovel", Item::new, new Item.Settings().axe(ALLOY, 1.0f, 1.0f));
+			public static final Item ALLOY_HOE = register("alloy_hoe", Item::new, new Item.Settings().sword(ALLOY, 1.0f, 1.0f));
+
+			//armor
+			public static final Item ALLOY_CHESTPLATE = register("alloy_chestplate", Item::new, 
+				new Item.Settings().armor(AlloyA.INSTANCE, EquipmentType.CHESTPLATE)
+				.maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(AlloyA.BASE_DURABILITY))
+			);
+			public static final Item ALLOY_LEGGINGS = register("alloy_leggings", Item::new, 
+				new Item.Settings().armor(AlloyA.INSTANCE, EquipmentType.LEGGINGS)
+				.maxDamage(EquipmentType.LEGGINGS.getMaxDamage(AlloyA.BASE_DURABILITY))
+			);
+			public static final Item ALLOY_BOOTS = register("alloy_boots", Item::new, 
+				new Item.Settings().armor(AlloyA.INSTANCE, EquipmentType.BOOTS)
+				.maxDamage(EquipmentType.BOOTS.getMaxDamage(AlloyA.BASE_DURABILITY))
 			);
 
 		//Heavy Alloy
@@ -256,6 +306,8 @@ public class ModItems {
 				.maxDamage(EquipmentType.BOOTS.getMaxDamage(LightweightAlloyA.BASE_DURABILITY))
 			);
 
+		//Reinforced Standard Alloy
+
 		//Reinforced Heavy Alloy
 			public static final Item REINFORCED_HEAVY_ALLOY_SWORD = register("reinforced_heavy_alloy_sword", Item::new, new Item.Settings().sword(HEAVY_ALLOY, 1.0f, 1.0f));
 			public static final Item REINFORCED_HEAVY_ALLOY_AXE = register("reinforced_heavy_alloy_axe", Item::new, new Item.Settings().axe(HEAVY_ALLOY, 1.0f, 1.0f));
@@ -293,8 +345,12 @@ public class ModItems {
 	public static final Item WOODEN_SPEAR = register("wooden_spear", Item::new, new Item.Settings().sword(WOOD, 1.2f, 0.7f));
 	public static final Item STONE_SPEAR = register("stone_spear", Item::new, new Item.Settings().sword(STONE, 1.2f, 0.7f));
 	public static final Item IRON_SPEAR = register("iron_spear", Item::new, new Item.Settings().sword(IRON, 1.2f, 0.7f));
-	public static final Item GOLLDEN_SPEAR = register("gold_spear", Item::new, new Item.Settings().sword(GOLD, 1.2f, 0.7f));
+	public static final Item GOLDEN_SPEAR = register("gold_spear", Item::new, new Item.Settings().sword(GOLD, 1.2f, 0.7f));
+	public static final Item LIGHTWEIGHT_ALLOY_SPEAR = register("lightweight_alloy_spear", Item::new, new Item.Settings().sword(LIGHTWEIGHT_ALLOY, 1.2f, 0.7f));
 	public static final Item DIAMOND_SPEAR = register("diamond_spear", Item::new, new Item.Settings().sword(DIAMOND, 1.2f, 0.7f));
+	public static final Item ALLOY_SPEAR = register("alloy_spear", Item::new, new Item.Settings().sword(ALLOY, 1.2f, 0.7f));
+	public static final Item HEAVY_ALLOY_SPEAR = register("heavy_alloy_spear", Item::new, new Item.Settings().sword(HEAVY_ALLOY, 1.2f, 0.7f));
+	public static final Item NETHERITE_SPEAR = register("netherite_spear", Item::new. new Item.Settings().sword(NETHERITE, 1.2f, 0.7f));
 	public static final Item REINFORCED_NETHERITE_SPEAR = register("reinforced_netherite_spear", Item::new, new Item.Settings().sword(REINFORCED_NETHERITE, 1.2f, 0.7f));
 
 	//rapiers
@@ -320,6 +376,33 @@ public class ModItems {
 	public static final Item GOLDEN_SICKLE = register("gold_sickle", Item::new, new Item.Settings().sword(GOLD_TOOL_MATERIAL_TOOL_MATERIAL, 1.4f, 0.7f));
 	public static final Item DIAMOND_SICKLE = register("diamond_sickle", Item::new, new Item.Settings().sword(DIAMOND_TOOL_MATERIAL, 1.4f, 0.7f));
 	public static final Item REINFORCED_NETHERITE_SICKLE = register("reinforced_netherite_halberd", Item::new, new Item.Settings().sword(REINFORCED_NETHERITE_TOOL_MATERIAL, 1.4f, 0.7f));
+
+	//Hammers
+		//Hammer Heads
+		public static final Item WOODEN_HAMMER_HEAD = register("wooden_hammer_head", Item::new, new Item.Settings().sword(WOOD, 1.2f, 0.7f));
+		public static final Item STONE_HAMMER_HEAD = register("stone_hammer_head", Item::new, new Item.Settings().sword(STONE, 1.2f, 0.7f));
+		public static final Item IRON_HAMMER_HEAD = register("iron_hammer_head", Item::new, new Item.Settings().sword(IRON, 1.2f, 0.7f));
+		public static final Item GOLDEN_HAMMER_HEAD = register("gold_hammer_head", Item::new, new Item.Settings().sword(GOLD, 1.2f, 0.7f));
+		public static final Item LIGHTWEIGHT_ALLOY_HAMMER_HEAD = register("lightweight_alloy_hammer_head", Item::new, 
+			new Item.Settings().sword(LIGHTWEIGHT_ALLOY, 1.2f, 0.7f));
+		public static final Item DIAMOND_HAMMER_HEAD = register("diamond_hammer_head", Item::new, new Item.Settings().sword(DIAMOND, 1.2f, 0.7f));
+		public static final Item ALLOY_HAMMER_HEAD = register("alloy_hammer_head", Item::new, new Item.Settings().sword(ALLOY, 1.2f, 0.7f));
+		public static final Item HEAVY_ALLOY_HAMMER_HEAD = register("heavy_alloy_hammer_head", Item::new, new Item.Settings().sword(HEAVY_ALLOY, 1.2f, 0.7f));
+		public static final Item NETHERITE_HAMMER_HEAD = register("netherite_hammer_head", Item::new. new Item.Settings().sword(NETHERITE, 1.2f, 0.7f));
+		public static final Item REINFORCED_NETHERITE_HAMMER_HEAD = register("reinforced_netherite_hammer_head", Item::new, 
+			new Item.Settings().sword(REINFORCED_NETHERITE, 1.2f, 0.7f));		
+
+		//Crafted
+		public static final Item WOODEN_HAMMER = register("wooden_hammer", Item::new, new Item.Settings().sword(WOOD, 1.2f, 0.7f));
+		public static final Item STONE_HAMMER = register("stone_hammer", Item::new, new Item.Settings().sword(STONE, 1.2f, 0.7f));
+		public static final Item IRON_HAMMER = register("iron_hammer", Item::new, new Item.Settings().sword(IRON, 1.2f, 0.7f));
+		public static final Item GOLDEN_HAMMER = register("gold_hammer", Item::new, new Item.Settings().sword(GOLD, 1.2f, 0.7f));
+		public static final Item LIGHTWEIGHT_ALLOY_HAMMER = register("lightweight_alloy_hammer", Item::new, new Item.Settings().sword(LIGHTWEIGHT_ALLOY, 1.2f, 0.7f));
+		public static final Item DIAMOND_HAMMER = register("diamond_hammer", Item::new, new Item.Settings().sword(DIAMOND, 1.2f, 0.7f));
+		public static final Item ALLOY_HAMMER = register("alloy_hammer", Item::new, new Item.Settings().sword(ALLOY, 1.2f, 0.7f));
+		public static final Item HEAVY_ALLOY_HAMMER = register("heavy_alloy_hammer", Item::new, new Item.Settings().sword(HEAVY_ALLOY, 1.2f, 0.7f));
+		public static final Item NETHERITE_HAMMER = register("netherite_hammer", Item::new. new Item.Settings().sword(NETHERITE, 1.2f, 0.7f));
+		public static final Item REINFORCED_NETHERITE_HAMMER = register("reinforced_netherite_hammer", Item::new, new Item.Settings().sword(REINFORCED_NETHERITE, 1.2f, 0.7f));
 
     public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY  = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(Reinforcement.MOD_ID, "reinforcement"));
     public static final ItemGroup CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
@@ -352,10 +435,18 @@ public class ModItems {
             entries.add(REINFORCED_STICK);
             entries.add(COMPRESSED_DIAMOND);
             entries.add(REINFORCED_HANDLE);
+			entries.add(LIGHTWEIGHT_ALLOY_INGOT);
+			entries.add(ALLOY_INGOT);
+			entries.add(HEAVY_ALLOY_INGOT);
+			entries.add(REINFORCED_LIGHTWEIGHT_ALLOY_INGOT);
+			entries.add(REINFORCED_ALLOY_INGOT);
+			entries.add(REINFORCED_HEAVY_ALLOY_INGOT);
+			entries.add(REINFORCED_NETHERITE_INGOT);
 
 			entries.add(WOODEN_SPEAR);
 			entries.add(WOODEN_RAPIER);
 			entries.add(WOODEN_HALBERD);
+			entries.add(WOODEN_SICKLE);
         });
     }
 }
